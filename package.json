@@ -1,0 +1,12 @@
+{
+  "name": "lwPopups",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-uglify": "^5.2.2"
+  },
+  "dependencies": {
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}
