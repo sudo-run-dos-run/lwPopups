@@ -6,6 +6,7 @@
     "grunt-contrib-jasmine": "^3.0.0",
     "grunt-contrib-jshint": "^0.12.0",
     "grunt-contrib-uglify": "^5.2.2",
+    "grunt-documentation": "^1.2.3",
     "grunt-jontrib-jasmine": "^3.0.0"
   },
   "dependencies": {

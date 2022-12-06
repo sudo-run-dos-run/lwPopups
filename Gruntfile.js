@@ -4,13 +4,13 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'src/**/*.js']
     },
-	uglify: {
-	  my_target: {
-	    files: {
-	      'dist/lwPopups.min.js': ['src/lwPopups.js', 'src/lwPopupsUtilities.js']
-		}
-	  }
-	},
+    uglify: {
+      my_target: {
+        files: {
+          'dist/lwPopups.min.js': ['src/lwPopups.js', 'src/lwPopupsUtilities.js']
+        }
+      }
+    },
     jasmine: {
       options: {
           version: '3.8.0', // Using 3.8.0 instead of 4.0.0 as a workaround or tests won't finish for HeadlessChrome/90
@@ -23,6 +23,18 @@ module.exports = function(grunt) {
         }
       }
     },
+    documentation: {
+        default: {
+            files: [{
+                "expand": true,
+                "cwd": "src",
+                "src": ["**/*.js"]
+            }],
+            options: {
+                destination: "docs"
+            }
+        },
+    },
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint']
@@ -33,7 +45,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-documentation');
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'jasmine']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'jasmine', 'documentation']);
 
 };
