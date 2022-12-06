@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 	},
     jasmine: {
       options: {
-          version: '3.8.0',
-          noSandbox: true
+          version: '3.8.0', // Using 3.8.0 instead of 4.0.0 as a workaround or tests won't finish for HeadlessChrome/90
+          helpers: ['libs/jquery.*.js', 'libs/jquery-ui.js']
       },
       myTest001: {
         src: 'src/**/*.js',
