@@ -2,3 +2,6 @@
 /dist/
 /package-lock.json
 /docs/
+/test/dist
+/test/libs
+/test/resources
