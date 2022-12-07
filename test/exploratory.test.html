@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>lwPopups</title>
+		<meta charset="utf-8" name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+		<script type="text/javascript" src="libs/jquery.min.js"></script>
+		<script type="text/javascript" src="libs/jquery-ui.js"></script>
+		
+		<script type="text/javascript" src="dist/lwPopups.min.js"></script>
+
+		<script type="text/javascript">				
+			function popup1() {
+				lwPopups.showText("Le Title", "Oh hai!");
+			}
+			function popup2() {
+				lwPopups.showImage("Le Title", "test-resources/sunflower-flowers-bright-yellow-46216.jpg");
+			}
+		</script>
+	</head>
+	<body style="background-color:black; font-family:monospace; font-size:small;">
+		<<button type="button" onclick="popup1();">Open a text popup</button>
+		<<button type="button" onclick="popup2();">Open an image popup</button>
+	</body>
+</html>
