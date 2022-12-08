@@ -12,7 +12,7 @@
 describe("lwPopupsUtilities integration test cases", () => {
   it("lwPopupsUtilities-it-1: main popup container is injected", () => {
     // Running the lwPopups script automatically creates a new container under the html body
-    expect($('#popUpContainer').length).toEqual(1);
+    expect($('body div[id^="popUpContainer"]').length).toEqual(1);
   }),
   it("lwPopupsUtilities-it-2: the text popup works", () => {
     // Creating a text popup with title and content  
