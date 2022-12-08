@@ -21,5 +21,14 @@ describe("lwPopupsUtilities integration test cases", () => {
     lwPopups.showText(titleText, bodyText);
     expect($('span[id^="popUpTitle-"]').html()).toEqual(titleText);
     expect($('div[id^="popUpContent-"]').html()).toEqual(bodyText);
+  }),
+  it("lwPopupsUtilities-it-3: opening multiple popups", () => {
+    // Creating multiple popups opens exactly the correct number of popups
+    lwPopups.showText("le title", "ohai!");
+    lwPopups.showText("le title", "ohai!");
+    lwPopups.showText("le title", "ohai!");
+    lwPopups.showText("le title", "ohai!");
+    lwPopups.showText("le title", "ohai!");
+    expect($('div[id^="popUp-"]').length).toEqual(5);
   })
 });
