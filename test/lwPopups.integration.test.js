@@ -7,9 +7,16 @@
 
 /*!
  * INTEGRATION TESTS
+ *
+ * Note that integration tests run in RANDOM ORDER currently!
+ * Not clear if this is a good testing strategy.
  */
 
 describe("lwPopupsUtilities integration test cases", () => {
+  afterEach(() => {
+    //  FIXME this is not an ideal clean up function, just a hack!
+    $('div[id^="popUp-"]').remove();
+  }),
   it("lwPopupsUtilities-it-1: main popup container is injected", () => {
     // Running the lwPopups script automatically creates a new container under the html body
     expect($('body div[id^="popUpContainer"]').length).toEqual(1);
