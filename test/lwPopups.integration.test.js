@@ -16,8 +16,10 @@ describe("lwPopupsUtilities integration test cases", () => {
   }),
   it("lwPopupsUtilities-it-2: the text popup works", () => {
     // Creating a text popup with title and content  
-    lwPopups.showText("le title", "ohai!");
-    expect($('#popUpTitle-0').html()).toEqual('le title');
-    expect($('#popUpContent-0').html()).toEqual('ohai!');
+    const titleText = "le title";
+    const bodyText = "ohai!";
+    lwPopups.showText(titleText, bodyText);
+    expect($('span[id^="popUpTitle-"]').html()).toEqual(titleText);
+    expect($('div[id^="popUpContent-"]').html()).toEqual(bodyText);
   })
 });
