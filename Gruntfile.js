@@ -45,8 +45,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
-  grunt.loadNpmTasks('grunt-documentation');
+  // grunt.loadNpmTasks('grunt-documentation');  // The docu module is super old and throws many warnings, disabled for now
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'jasmine', 'documentation']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'jasmine']);  //, 'documentation']);
 
 };
