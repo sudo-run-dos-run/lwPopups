@@ -5,17 +5,6 @@
  * This source code is free to use under the CC0 license.
  */
 
-/*!
- * Hint: We use the Revealing Module Pattern to organize the namespace.
- */
-
- /*!
- * WARNING: This software is a demo, the code is still evolving. It should not be used in commercial environments, yet.
- */
-
-/*jslint browser: true, devel: true, sloppy: true, vars: true, nomen:true, todo:true*/
-/*global $, tobias_weigl_de*/
-
 /**
  * The lwPopups Core Module. lwPopups Is A Lightweight HTML5 Window Manager.
  *
@@ -23,7 +12,6 @@
  */
 var lwPopups,
     lwPopups = lwPopups || {};
-
 
 /**
  * The lwPopups Core Namespace.
@@ -42,13 +30,9 @@ lwPopups = (function () {
      * @enum {number} Position Values to define the window position on pop up
      */
     var Position = {
-        /** Positions window at previous window's position. Behaves like Position.CENTER for the first opened window. */
         PREVIOUS_POSITION : 0,
-        /** Positions window at the center of the browser viewport. */
         CENTER : 1,
-        /** Positions window at the left top of the browser viewport. */
         LEFT_TOP: 2,
-        /** Positions window at the center top of the browser viewport. */
         CENTER_TOP: 3
     };
 
@@ -126,24 +110,10 @@ lwPopups = (function () {
         return b === undefined ? ALLOW_UNLIMITED_WINDOWS : set(b);
     }
 
-   /**
-    * Retrieve information about the current focus state.
-    *
-    * @memberOf lwPopups
-    * @method getCurrentFocusID
-    * @return Returns the ID of the currently focussed window or undefined if no window is currently focussed.
-    */
     function getCurrentFocusID() {
         return WPOPUPS_GLOBAL_focus_id;
     }
 
-    /**
-     * Abstract Base Window Class.
-     *
-     * @private
-     * @abstract
-     * @class AbstractBaseWindow
-     */
     var AbstractBaseWindow = function () { return undefined; };
 
     AbstractBaseWindow.prototype = {
@@ -220,30 +190,11 @@ lwPopups = (function () {
             return undefined;
         },
 
-        /**
-         * Inject the content for a specific window kind. The hook is '$('#popUpContent-' + id)'.
-         *
-         * @memberOf AbstractBaseWindow
-         * @private
-         * @abstract
-         * @method setContent
-         * @param {string} content The content to be injected.
-         * @throws lwPopups.error.AbstractFunctionNotImplementedError If there is no implementation, this method throws and error.
-         */
         setContent : function (content) {
             this.devNull = content;
             throw new lwPopups.error.AbstractFunctionNotImplementedError("setContent(content) is not implemented!");
         },
 
-        /**
-         * Automatic scaling based on the window content type. E.g., for text it might be #chars, for frames width/height props, etc.
-         *
-         * @memberOf AbstractBaseWindow
-         * @private
-         * @abstract
-         * @method autoscale
-         * @throws lwPopups.error.AbstractFunctionNotImplementedError If there is no implementation, this method throws and error.
-         */
         autoscale : function () {
             throw new lwPopups.error.AbstractFunctionNotImplementedError("autoscale() is not implemented!");
         },
@@ -370,9 +321,6 @@ lwPopups = (function () {
             return undefined;
         },
 
-        /**
-         * Window "X"-Button.
-         */
         buttonX : function (_this) {
             var id = _this.id;
 
@@ -412,9 +360,6 @@ lwPopups = (function () {
             };
         },
 
-        /**
-         * Window "OK"-Button.
-         */
         buttonOK : function (_this) {
             var id = _this.id;
 
@@ -537,21 +482,6 @@ lwPopups = (function () {
 
     var TextWindow;
 
-    /**
-     * TextWindow Class.
-     *
-     * @private
-     * @class TextWindow
-     * @constructor
-     * @param {number} id
-     * @param {string} windowTitle
-     * @param {string} windowText
-     * @param {string} textColor
-     * @param {number} position
-     * @param {boolean} forbidMoreInstancesUntilClosed
-     * @param {number} displayDuration_sec
-     * @return undefined
-     */
     TextWindow = function (id, windowTitle, windowText, textColor, position, forbidMoreInstancesUntilClosed, displayDuration_sec) {
 
         this.id = id;
@@ -621,32 +551,11 @@ lwPopups = (function () {
 
     TextWindow.prototype = new AbstractBaseWindow();
 
-    /**
-     * Window Manager to Manage the Windows.
-     *
-     * @private
-     * @namespace windowManager
-     *
-     */
     windowManager = (function () {
 
         var w;
         var windowQueue = [];
 
-        /**
-         * NO DESCRIPTION AVAILABLE YET
-         *
-         * @memberOf windowManager
-         * @private
-         * @method showText
-         * @param {string} windowTitle
-         * @param {string} windowText
-         * @param {string} textColor
-         * @param {number} position
-         * @param {boolean} forbidMoreInstancesUntilClosed
-         * @param {number=} [displayDuration_sec]
-         * @return undefined
-         */
         function showText(windowTitle, windowText, textColor, position, forbidMoreInstancesUntilClosed, displayDuration_sec) {
             if ((!ALLOW_UNLIMITED_WINDOWS && WPOPUPS_GLOBAL_openWindows >= IF_FALSE_ALLOW_UNLIMITED_WINDOWS_THEN_MAX_OPEN_WINDOWS) || WPOPUPS_GLOBAL_forbidMoreInstancesUntilClosed) {
                 _thisPopUps.shakeAll();
@@ -663,7 +572,6 @@ lwPopups = (function () {
         };
     }());
 
-
     /**
      * Shake all currently displayed windows.
      * 
@@ -678,18 +586,6 @@ lwPopups = (function () {
         return undefined;
     };
 
-    /**
-     * Shows a window that contains text.
-     *
-     * @method lwPopups.showText     
-     * @param {string} [windowTitle="Info"] The Window Title.
-     * @param {string} [windowText="No details available."] Text to display.
-     * @param {string} [textColor="white"] The text color.
-     * @param {number} [position=Position.CENTER] One of the values specified in Position.
-     * @param {boolean} [forbidMoreInstancesUntilClosed=false] If true no more popups are created until this one is closed.
-     * @param {number=} [displayDuration_sec] Duration until the window fades out automatically and is destroyed.
-     * @return undefined
-     */
     function showText(windowTitle, windowText, textColor, position, forbidMoreInstancesUntilClosed, displayDuration_sec) {
         windowManager.showText(windowTitle, windowText, textColor, position, forbidMoreInstancesUntilClosed, displayDuration_sec);
         return undefined;
