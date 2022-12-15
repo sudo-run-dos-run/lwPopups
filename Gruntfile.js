@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>'],
-      tasks: ['default'],
+      tasks: ['watchTask'],
 	  options: {
 		  event: ['changed']
 	  }
@@ -51,5 +51,6 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-documentation');  // The docu module is super old and throws many warnings, disabled for now
 
   grunt.registerTask('default', ['jshint', 'uglify', 'jasmine']);  //, 'documentation']);
+  grunt.registerTask('watchTask', ['uglify']); // Note: Do not call tasks "watch" or they will override the 'grunt watch' command
 
 };
