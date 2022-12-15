@@ -1456,8 +1456,6 @@ var BandcampWindow;
         windowManager.showBandcampWindow(windowTitle, bandcampContent, position, forbidMoreInstancesUntilClosed, displayDuration_sec);
         return undefined;
     }
-
-
     /**
      * Constructs and injects the window container.
      */
@@ -1499,19 +1497,5 @@ var BandcampWindow;
 	showRumbleVideo : showRumbleVideo,
 	showTweetWindow : showTweetWindow,
         showBandcampWindow : showBandcampWindow
-    };
-}());
-
-
-lwPopups.error = (function () {
-    function AbstractFunctionNotImplementedError(message) {
-        this.name = "AbstractFunctionNotImplementedError";
-        this.message = (message || "Abstract functions must be implemented!");
-    }
-
-    AbstractFunctionNotImplementedError.prototype = Error.prototype;
-
-    return {
-        AbstractFunctionNotImplementedError : AbstractFunctionNotImplementedError
     };
 }());
