@@ -40,7 +40,7 @@ lwPopups = (function () {
         DEFAULT_WINDOW_TITLE : "Info",
         DEFAULT_WINDOW_TEXT : "No details available.",
         DEFAULT_IMAGE_URL : "lwPopups_logo.png",
-	DEFAULT_TEXT_COLOR : "white"
+        DEFAULT_TEXT_COLOR : "white"
     };
 
     // CONFIG
@@ -365,7 +365,7 @@ lwPopups = (function () {
 
             function setDefault() {
                 $('#popUpButtonOK-' + id).css('background', 'rgba(50, 50, 50, 0.75)');
-		$('#popUpButtonOK-' + id).css('color', '#BBB');
+                $('#popUpButtonOK-' + id).css('color', '#BBB');
                 $('#popUpButtonOK-' + id).css('box-shadow', '0px 0px 0px 1px #888, 1px 1px 1px 1px #333, inset 0px 5px 13px 1px #555');
                 return undefined;
             }
@@ -488,7 +488,7 @@ lwPopups = (function () {
         this.windowTitle = windowTitle === undefined ? DefaultValuesMap.DEFAULT_WINDOW_TITLE : windowTitle;
         this.windowText = windowText === undefined ? DefaultValuesMap.DEFAULT_WINDOW_TEXT : windowText;
         this.textColor = textColor === undefined ? DefaultValuesMap.DEFAULT_TEXT_COLOR : textColor;
-	this.position = position === undefined ? DEFAULT_POSITION : position;
+        this.position = position === undefined ? DEFAULT_POSITION : position;
         this.forbidMoreInstancesUntilClosed = forbidMoreInstancesUntilClosed === undefined ? false : forbidMoreInstancesUntilClosed;
 
         // TODO RefactorMe
@@ -523,7 +523,7 @@ lwPopups = (function () {
 
         this.setContent = function () {
             $('#popUpContent-' + id).html(this.windowText);
-	    $('#popUpContent-' + id).css('color', this.textColor);
+            $('#popUpContent-' + id).css('color', this.textColor);
         };
 
         this.setContent();
